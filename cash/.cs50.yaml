@@ -26,9 +26,9 @@ check50:
     Check negative values are handled properly:
       - run: python3 hello.py
         stdin: -3
-        stdout: Change Owed:
+        stdout: Change Owed
         stdin: -3
-        stdout: Change Owed:
+        stdout: Change Owed
         stdin: 1
         stdout: 1
         
