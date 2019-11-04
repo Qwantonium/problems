@@ -4,6 +4,8 @@ check50:
     - !include "*.py"
     - !require hello.py
   checks:
+    hello.py exists:
+      exists: hello.py
     hello world:
       - run: python3 hello.py
         stdout: Hello, world!
