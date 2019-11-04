@@ -1,1 +1,9 @@
-check50: true
+check50: 
+  files: &check50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require cash.py
+  checks:
+
+submit50:
+  files: *check50_files
