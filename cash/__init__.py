@@ -8,39 +8,39 @@ def exists():
 
 @check50.check(exists)
 def test041():
-    """input of 0.41 yields output of 4"""
-    check50.run("python3 cash.py").stdin("0.41").stdout(coins(4), "4\n").exit(0)
+    """input of 0.4 yields output of 2"""
+    check50.run("python3 cash.py").stdin("0.4").stdout(coins(2), "2\n").exit(0)
 
 @check50.check(exists)
 def test001():
-    """input of 0.01 yields output of 1"""
-    check50.run("python3 cash.py").stdin("0.01").stdout(coins(1), "1\n").exit(0)
+    """input of 0.10 yields output of 1"""
+    check50.run("python3 cash.py").stdin("0.10").stdout(coins(1), "1\n").exit(0)
 
 @check50.check(exists)
 def test015():
-    """input of 0.15 yields output of 2"""
-    check50.run("python3 cash.py").stdin("0.15").stdout(coins(2), "2\n").exit(0)
+    """input of 0.40 yields output of 2"""
+    check50.run("python3 cash.py").stdin("0.40").stdout(coins(2), "2\n").exit(0)
 
 @check50.check(exists)
 def test160():
-    """input of 1.6 yields output of 7"""
-    check50.run("python3 cash.py").stdin("1.6").stdout(coins(7), "7\n").exit(0)
+    """input of 6.6 yields output of 5"""
+    check50.run("python3 cash.py").stdin("6.6").stdout(coins(5), "5\n").exit(0)
 
 @check50.check(exists)
 def test230():
-    """input of 23 yields output of 92"""
-    check50.run("python3 cash.py").stdin("23").stdout(coins(92), "92\n").exit(0)
+    """input of 23 yields output of 13"""
+    check50.run("python3 cash.py").stdin("23").stdout(coins(13), "13\n").exit(0)
 
 @check50.check(exists)
 def test420():
-    """input of 4.2 yields output of 18"""
+    """input of 12.95 yields output of 10"""
     from re import search
-    expected = "18\n"
+    expected = "10\n"
     actual = check50.run("python3 cash.py").stdin("4.2").stdout()
-    if not search(coins(18), actual):
+    if not search(coins(10), actual):
         help = None
-        if search(coins(22), actual):
-            help = "did you forget to round your input to the nearest cent?"
+        if search(coins(9), actual):
+            help = "did you forget to give 10c if 5c is owing?"
         raise Mismatch(expected, actual, help=help)
 
 @check50.check(exists)
