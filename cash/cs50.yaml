@@ -4,6 +4,33 @@ check50:
     - !include "*.py"
     - !require cash.py
   checks:
-
+    File Exists:
+      - run: python3 hello.py
+        stdin: 1
+        exit: 0
+    input of 0.4 yields output of 2 (2x$2 coins):
+      - run: python3 hello.py
+        stdin: 0.4
+        stdout: 2
+        exit: 0
+    input of 100.99 yields output of 54 coins:
+      - run: python3 hello.py
+        stdin: 100.99
+        stdout: 54
+        exit: 0
+    Check rounding up of small amounts:
+      - run: python3 hello.py
+        stdin: 1.55
+        stdout: 3
+        exit: 0
+    Check negative values are handled properly:
+      - run: python3 hello.py
+        stdin: -3
+        stdout: Change Owed:
+        stdin: -3
+        stdout: Change Owed:
+        stdin: 1
+        stdout: 1
+        
 submit50:
   files: *check50_files
