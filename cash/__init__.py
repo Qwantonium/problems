@@ -28,20 +28,13 @@ def test160():
 
 @check50.check(exists)
 def test230():
-    """input of 23 yields output of 13"""
-    check50.run("python3 cash.py").stdin("23").stdout(coins(13), "13\n").exit(0)
+    """input of 23 yields output of 12"""
+    check50.run("python3 cash.py").stdin("23").stdout(coins(12), "12\n").exit(0)
 
 @check50.check(exists)
 def test420():
     """input of 12.95 yields output of 10"""
-    from re import search
-    expected = "10\n"
-    actual = check50.run("python3 cash.py").stdin("4.2").stdout()
-    if not search(coins(10), actual):
-        help = None
-        if search(coins(9), actual):
-            help = "did you forget to give 10c if 5c is owing?"
-        raise Mismatch(expected, actual, help=help)
+    check50.run("python3 cash.py").stdin("12.95").stdout(coins(10), "10\n").exit(0)
 
 @check50.check(exists)
 def test_reject_negative():
