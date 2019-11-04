@@ -8,8 +8,8 @@ def exists():
 
 @check50.check(exists)
 def test041():
-    """input of 0.41 yields output of 4"""
-    check50.run("python3 cash.py").stdin("0.41").stdout(coins(4), "4\n").exit(0)
+    """input of 0.41 yields output of 3"""
+    check50.run("python3 cash.py").stdin("0.41").stdout(coins(3), "3\n").exit(0)
 
 @check50.check(exists)
 def test001():
@@ -23,23 +23,23 @@ def test015():
 
 @check50.check(exists)
 def test160():
-    """input of 1.6 yields output of 7"""
-    check50.run("python3 cash.py").stdin("1.6").stdout(coins(7), "7\n").exit(0)
+    """input of 1.6 yields output of 3"""
+    check50.run("python3 cash.py").stdin("1.6").stdout(coins(3), "3\n").exit(0)
 
 @check50.check(exists)
 def test230():
-    """input of 23 yields output of 92"""
-    check50.run("python3 cash.py").stdin("23").stdout(coins(92), "92\n").exit(0)
+    """input of 23 yields output of 13"""
+    check50.run("python3 cash.py").stdin("23").stdout(coins(13), "13\n").exit(0)
 
 @check50.check(exists)
 def test420():
-    """input of 4.2 yields output of 18"""
+    """input of 4.25 yields output of 4"""
     from re import search
-    expected = "18\n"
-    actual = check50.run("python3 cash.py").stdin("4.2").stdout()
-    if not search(coins(18), actual):
+    expected = "4\n"
+    actual = check50.run("python3 cash.py").stdin("4.25").stdout()
+    if not search(coins(4), actual):
         help = None
-        if search(coins(22), actual):
+        if search(coins(3), actual):
             help = "did you forget to round your input to the nearest cent?"
         raise Mismatch(expected, actual, help=help)
 
