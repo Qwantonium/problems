@@ -28,12 +28,12 @@ def test4():
 
 @check50.check(exists)
 def test5():
-    """Check a negative even number()"""
+    """Check a negative even number"""
     check50.run("python3 odd.py").stdin("-10").stdout("Even\n").exit(0)
 
 @check50.check(exists)
 def test6():
-    """input of 23 yields output of 12"""
+    """Check a negative odd number"""
     check50.run("python3 odd.py").stdin("-11").stdout("Odd\n").exit(0)
 
 @check50.check(exists)
