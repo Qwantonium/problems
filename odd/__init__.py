@@ -39,9 +39,9 @@ def test6():
 @check50.check(exists)
 def test_reject_foo():
     """rejects a non-numeric input of "foo" """
-    check50.run("python3 cash.py").stdin("foo").reject()
+    check50.run("python3 odd.py").stdin("foo").reject()
 
 @check50.check(exists)
 def test_reject_empty():
     """rejects a non-numeric input of "" """
-    check50.run("python3 cash.py").stdin("").reject()
+    check50.run("python3 odd.py").stdin("").reject()
