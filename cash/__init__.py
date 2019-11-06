@@ -38,8 +38,8 @@ def test420():
 
 @check50.check(exists)
 def test_reject_negative():
-    """rejects a negative input like -1"""
-    check50.run("python3 cash.py").stdin("-1").reject()
+    """rejects a fractional input like 0.5"""
+    check50.run("python3 cash.py").stdin("0.5").reject()
 
 @check50.check(exists)
 def test_reject_foo():
