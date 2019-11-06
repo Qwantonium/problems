@@ -22,17 +22,17 @@ def test3():
     check50.run("python3 odd.py").stdin("3").stdout("Odd\n").exit(0)
 
 @check50.check(exists)
-def test160():
+def test4():
     """Check a large odd number"""
     check50.run("python3 odd.py").stdin("9999999999999").stdout("Odd\n").exit(0)
 
 @check50.check(exists)
-def Check a negative even number():
-    """input of 23 yields output of 12"""
+def test5():
+    """Check a negative even number()"""
     check50.run("python3 odd.py").stdin("-10").stdout("Even\n").exit(0)
 
 @check50.check(exists)
-def test420():
+def test6():
     """input of 23 yields output of 12"""
     check50.run("python3 odd.py").stdin("-11").stdout("Odd\n").exit(0)
 
