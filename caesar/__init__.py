@@ -2,50 +2,40 @@ import check50
 
 @check50.check()
 def exists():
-    """vigenere.py exists."""
-    check50.exists("vigenere.py")
+    """caesar.py exists."""
+    check50.exists("caesar.py")
 
 @check50.check(exists)
-def aa():
-    """encrypts "a" as "a" using "a" as keyword"""
-    check50.run("python3 vigenere.py a").stdin("a").stdout("ciphertext:\s*a\n", "ciphertext: a\n").exit(0)
+def encrypts_a_as_b():
+    """encrypts "a" as "b" using 1 as key"""
+    check50.run("python3 caesar.py 1").stdin("a").stdout("ciphertext:\s*b\n", "ciphertext: b\n").exit(0)
 
 @check50.check(exists)
-def bazbarfoo_caqgon():
-    """encrypts "barfoo" as "caqgon" using "baz" as keyword"""
-    check50.run("python3 vigenere.py baz").stdin("barfoo").stdout("ciphertext:\s*caqgon\n", "ciphertext: caqgon\n").exit(0)
+def encrypts_barfoo_as_yxocll():
+    """encrypts "barfoo" as "yxocll" using 23 as key"""
+    check50.run("python3 caesar.py 23").stdin("barfoo").stdout("ciphertext:\s*yxocll\n", "ciphertext: yxocll\n").exit(0)
 
 @check50.check(exists)
-def mixedBaZBARFOO():
-    """encrypts "BaRFoo" as "CaQGon" using "BaZ" as keyword"""
-    check50.run("python3 vigenere.py BaZ").stdin("BaRFoo").stdout("ciphertext:\s*CaQGon\n", "ciphertext: CaQGon\n").exit(0)
+def encrypts_BARFOO_as_EDUIRR():
+    """encrypts "BARFOO" as "EDUIRR" using 3 as key"""
+    check50.run("python3 caesar.py 3").stdin("BARFOO").stdout("ciphertext:\s*EDUIRR\n", "ciphertext: EDUIRR\n").exit(0)
 
 @check50.check(exists)
-def allcapsBAZBARFOO():
-    """encrypts "BARFOO" as "CAQGON" using "BAZ" as keyword"""
-    check50.run("python3 vigenere.py BAZ").stdin("BARFOO").stdout("ciphertext:\s*CAQGON\n", "ciphertext: CAQGON\n").exit(0)
+def encrypts_BaRFoo_FeVJss():
+    """encrypts "BaRFoo" as "FeVJss" using 4 as key"""
+    check50.run("python3 caesar.py 4").stdin("BaRFoo").stdout("ciphertext:\s*FeVJss\n", "ciphertext: FeVJss\n").exit(0)
 
 @check50.check(exists)
-def bazworld():
-    """encrypts "world!$?" as "xoqmd!$?" using "baz" as keyword"""
-    check50.run("python3 vigenere.py baz").stdin("world!$?").stdout("ciphertext:\s*xoqmd!\$\?\n", "ciphertext: xoqmd!$?\n").exit(0)
+def encrypts_barfoo_as_onesbb():
+    """encrypts "barfoo" as "onesbb" using 65 as key"""
+    check50.run("python3 caesar.py 65").stdin("barfoo").stdout("ciphertext:\s*onesbb\n", "ciphertext: onesbb\n").exit(0)
 
 @check50.check(exists)
-def withspaces():
-    """encrypts "hello, world!" as "iekmo, vprke!" using "baz" as keyword"""
-    check50.run("python3 vigenere.py baz").stdin("hello, world!").stdout("ciphertext:\s*iekmo, vprke!\n", "ciphertext: iekmo, vprke!\n").exit(0)
+def checks_for_handling_non_alpha():
+    """encrypts "world, say hello!" as "iadxp, emk tqxxa!" using 12 as key"""
+    check50.run("python3 caesar.py 12").stdin("world, say hello!").stdout("ciphertext:\s*iadxp, emk tqxxa!\n", "ciphertext: iadxp, emk tqxxa!\n").exit(0)
 
 @check50.check(exists)
-def noarg():
+def handles_no_argv():
     """handles lack of argv[1]"""
-    check50.run("python3 vigenere.py").exit(1)
-
-@check50.check(exists)
-def toomanyargs():
-    """handles argc > 2"""
-    check50.run("python3 vigenere.py 1 2 3").exit(1)
-
-@check50.check(exists)
-def reject():
-    """rejects "Hax0r2" as keyword"""
-    check50.run("python3 vigenere.py Hax0r2").exit(1)
+    check50.run("python3 caesar.py").exit(1)
