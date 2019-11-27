@@ -58,6 +58,6 @@ def test_functions_exist():
     result = re.findall(r'(\ndef \w*:|\ndef \w*\(\):|\ndef \w*\([A-Z ,a-z0-9]*\):)', output)
     defCount = len(result)
     for i in result:
-        check50.log("Found "+i)
+        check50.log("Found "+i.strip())
     if defCount < 2:
         raise check50.Failure("You need at least two functions defined")
