@@ -59,7 +59,7 @@ def test_functions_exist():
     defCount = len(result)
     if defCount == 0:
         help = "Your code needs to have at least one function defined"   
-        raise check50.Mismatch("2 or more", "0", help=help)
+        raise check50.Mismatch("2 or more", defCount , help=help)
     if defcount == 1:
         help = "Your code needs to have at least two functions defined" 
-        raise check50.Mismatch("2 or more", "1", help=help)
+        raise check50.Mismatch("2 or more", defCount , help=help)
