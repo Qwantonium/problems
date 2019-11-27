@@ -57,9 +57,5 @@ def test_functions_exist():
     output = check50.run("cat credit.py").stdout()
     result = re.findall(r'(\ndef \w*:|\ndef \w*\(\):|\ndef \w*\([A-Z a-z0-9]*\):)', output)
     defCount = len(result)
-    if defCount == 0:
-        help = "Your code needs to have at least one function defined"   
-        raise check50.Mismatch("2 or more", defCount , help=help)
-    if defcount == 1:
-        help = "Your code needs to have at least two functions defined" 
-        raise check50.Mismatch("2 or more", defCount , help=help)
+    if defCount < 2:
+        raise check50.Failure("You need at least two functions defined")
