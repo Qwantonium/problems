@@ -55,7 +55,7 @@ def test_reject_empty():
 def test_functions_exist():
     """Checks that there are functions in the program """
     output = check50.run("cat credit.py").stdout()
-    result = re.findall('\ndef \w*:|\ndef \w*\(\):|\ndef \w*\(\V*\):', output)
+    result = re.findall(r'\ndef \w*:|\ndef \w*\(\):|\ndef \w*\(\V*\):', output)
     defCount = len(result)
     if defCount == 0:
         help = "Your code needs to have at least one function defined"   
