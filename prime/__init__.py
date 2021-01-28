@@ -16,27 +16,37 @@ def test041():
 @check50.check(exists)
 def test001():
     """input of 3 yields output of Prime"""
-    check50.run("python3 prime.py").stdin("3").stdout("Prime").exit(0)
+    output = check50.run("python3 prime.py").stdin("3").stdout()
+    if not output == "Prime":
+        raise check50.Failure("Expected Prime, received ", output)
 
 @check50.check(exists)
 def test015():
     """input of 4 yields output of Not Prime"""
-    check50.run("python3 prime.py").stdin("4").stdout("Not Prime").exit(0)
+    output = check50.run("python3 prime.py").stdin("4").stdout()
+    if not output == "Not Prime":
+        raise check50.Failure("Expected Prime, received ", output)
 
 @check50.check(exists)
 def test160():
     """input of 13 yields output of Prime"""
-    check50.run("python3 prime.py").stdin("13").stdout("Prime").exit(0)
+    output = check50.run("python3 prime.py").stdin("13").stdout()
+    if not output == "Prime":
+        raise check50.Failure("Expected Prime, received ", output)
 
 @check50.check(exists)
 def test10007():
     """input of 10007 yields output of Prime"""
-    check50.run("python3 prime.py").stdin("10007").stdout("Prime").exit(0)
+    output = check50.run("python3 prime.py").stdin("10007").stdout()
+    if not output == "Prime":
+        raise check50.Failure("Expected Prime, received ", output)
 
 @check50.check(exists)
 def test1000000():
     """input of 1000000 yields output of Not Prime"""
-    check50.run("python3 prime.py").stdin("1000000").stdout("Not Prime").exit(0)
+    output = check50.run("python3 prime.py").stdin("1000000").stdout()
+    if not output == "Not Prime":
+        raise check50.Failure("Expected Prime, received ", output)
     
 @check50.check(exists)
 def test_reject_fraction():
