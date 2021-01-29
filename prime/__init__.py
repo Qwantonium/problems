@@ -7,28 +7,28 @@ def exists():
     check50.exists("prime.py")
 
 @check50.check(exists)
-def test041():
+def test002():
     """input of 2 yields output of Prime"""
     output = check50.run("python3 prime.py").stdin("2").stdout()
     if not output == "Prime\n":
         raise check50.Failure("Expected Prime, received "+ output)
 
 @check50.check(exists)
-def test001():
+def test003():
     """input of 3 yields output of Prime"""
     output = check50.run("python3 prime.py").stdin("3").stdout()
     if not output == "Prime\n":
         raise check50.Failure("Expected Prime, received "+ output)
 
 @check50.check(exists)
-def test015():
+def test004():
     """input of 4 yields output of Not Prime"""
     output = check50.run("python3 prime.py").stdin("4").stdout()
     if not output == "Not Prime\n":
-        raise check50.Failure("Expected Prime, received "+ output)
+        raise check50.Failure("Expected Not Prime, received "+ output)
 
 @check50.check(exists)
-def test160():
+def test013():
     """input of 13 yields output of Prime"""
     output = check50.run("python3 prime.py").stdin("13").stdout()
     if not output == "Prime\n":
@@ -46,7 +46,7 @@ def test1000000():
     """input of 1000000 yields output of Not Prime"""
     output = check50.run("python3 prime.py").stdin("1000000").stdout()
     if not output == "Not Prime\n":
-        raise check50.Failure("Expected Prime, received "+ output)
+        raise check50.Failure("Expected Not Prime, received "+ output)
     
 @check50.check(exists)
 def test_reject_fraction():
@@ -67,7 +67,3 @@ def test_reject_foo():
 def test_reject_empty():
     """rejects a non-numeric input of "" """
     check50.run("python3 prime.py").stdin("").reject()
-
-
-def coins(num):
-    return fr"(^|[^\d]){num}(?!\d)"
