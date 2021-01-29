@@ -10,7 +10,7 @@ def exists():
 def test041():
     """input of 2 yields output of Prime"""
     output = check50.run("python3 prime.py").stdin("2").stdout()
-    if not output == "Prime":
+    if not output == "Prime\n":
         raise check50.Failure("Expected Prime, received ", output)
 
 @check50.check(exists)
