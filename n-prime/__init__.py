@@ -1,6 +1,5 @@
 import check50
-from inspect import getmembers, isfunction
-import mymodule
+import re
 
     
 
