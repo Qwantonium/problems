@@ -1,10 +1,20 @@
 import check50
+from inspect import getmembers, isfunction
+import mymodule
 
+    
 
 @check50.check()
 def exists():
     """prime-n.py exists"""
     check50.exists("prime-n.py")
+    
+@check50.check(exists)
+def testfuncs():
+    """Checking that the source file contains at least one function"""
+    if len([fn for fn in getmembers(mymodule) if isfunction(fn[1])]) < 1: #no functions are defined
+        raise check50.Failure("At least one user-defined function is required")
+        
 
 @check50.check(exists)
 def test002():
