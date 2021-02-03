@@ -10,11 +10,15 @@ def exists():
     check50.exists("prime-n.py")
     
 @check50.check(exists)
-def testfuncs():
-    """Checking that the source file contains at least one function"""
-    if len([fn for fn in getmembers(mymodule) if isfunction(fn[1])]) < 1: #no functions are defined
-        raise check50.Failure("At least one user-defined function is required")
-        
+def test_functions_exist():
+    """Checks that there are functions in the program """
+    output = check50.run("cat prime-n.py").stdout()
+    result = re.findall(r'(\ndef \w*:|\ndef \w*\(\):|\ndef \w*\([A-Z ,a-z0-9]*\):)', output)
+    defCount = len(result)
+    for i in result:
+        check50.log("Found "+i.strip())
+    if defCount < 2:
+        raise check50.Failure("You need at least two functions defined")
 
 @check50.check(exists)
 def test002():
