@@ -36,19 +36,19 @@ def test412():
 @check50.check(exists)
 def test_reject_fraction():
     """rejects a fraction input"""
-    check50.run("python3 prime.py").stdin("12.95").reject()
+    check50.run("python3 prime-n.py").stdin("12.95").reject()
 
 @check50.check(exists)
 def test_reject_negative():
     """rejects a negative input like -1"""
-    check50.run("python3 prime.py").stdin("-50").reject()
+    check50.run("python3 prime-n.py").stdin("-50").reject()
 
 @check50.check(exists)
 def test_reject_foo():
     """rejects a non-numeric input of "foo" """
-    check50.run("python3 prime.py").stdin("foo").reject()
+    check50.run("python3 prime-n.py").stdin("foo").reject()
 
 @check50.check(exists)
 def test_reject_empty():
     """rejects a non-numeric input of "" """
-    check50.run("python3 prime.py").stdin("").reject()
+    check50.run("python3 prime-n.py").stdin("").reject()
